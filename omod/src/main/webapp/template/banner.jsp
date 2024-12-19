@@ -2,9 +2,9 @@
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	xmlns:spring="http://www.springframework.org/tags"
 	xmlns:openmrs="urn:jsptld:/WEB-INF/view/module/legacyui/taglibs/openmrs.tld">
-<a href="<%= request.getContextPath() %><spring:theme code="url.homepage" />">
+<!-- <a href="<%= request.getContextPath() %><spring:theme code="url.homepage" />">
   <div id="logosmall"><img src="<%= request.getContextPath() %><spring:theme code="image.logo.text.small" />" alt="OpenMRS Logo" border="0"/></div>
-</a>  
+</a>   -->
 <table id="bannerbar">
   <tr>
     <td id="logocell"> <img src="<%= request.getContextPath() %><spring:theme code="image.logo.small" />" alt="" class="logo-reduced61" />
@@ -17,6 +17,9 @@
  		</openmrs:hasPrivilege>
          </div>
         <script type="text/javascript">
+          document.addEventListener('DOMContentLoaded', function() {
+            document.title = "Kapsiki Healthcare";
+          })
         	function resize(){
 			document.getElementById('bar-round-reduced50').style.height = document.getElementById('barsmall').offsetHeight+"px";
         	}
