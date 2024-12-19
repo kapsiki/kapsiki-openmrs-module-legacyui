@@ -1623,6 +1623,7 @@ a.selectedTab {
 #bannerbar {
 	margin-top: 0px;
 	height: 56px;
+	background: #fff;
 	border-bottom: 1px solid #0CAE50;
 }
 
@@ -1649,4 +1650,80 @@ img.bar-round-reduced50 {
 img.logo-reduced61 {
 	width: 200px;
 	height: auto;
+}
+
+
+
+
+.dropdown {
+	display: flex;
+	text-align: left;
+	flex-direction: column;
+	width: 250px;
+	gap: 0;
+	transform: translateY(57px)
+}
+
+.dropdown>div {
+	display: inline-block;
+	align-self: start;
+	padding: 8px 16px;
+	border: 1px solid #ddd;
+	cursor: pointer;
+	border-radius: 8px;
+	transform: translate(180px, -222px);
+	background: #eee;
+
+}
+
+.dropdown-element {
+	margin: 0;
+	text-align: left;
+	border: none;
+	visibility: hidden;
+	position: relative;
+	background: #fff;
+}
+
+.dropdown-element.visible {
+	visibility: visible
+}
+
+.dropdown-element:first-of-type {
+	padding: 8px !important;
+	margin: 0;
+	font-weight: bold;
+}
+
+.dropdown-element>a {
+	padding: 8px;
+	margin: 0;
+	width: 100%;
+	display: inline-block;
+	text-align: left;
+	border: none !important;
+	;
+}
+
+
+.dropdown-element>a:hover {
+	background: #eee;
+}
+
+body, #content {
+	background: #f4f4f4;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+#loginPortlet form {
+	padding: 32px !important;
+	max-width: 400px !important;
+	width: 100% !important;
+	margin: auto;
+	background: #fff;
+	box-shadow: 1px 1px 10px #ddd;
+	border-radius: 8px
 }

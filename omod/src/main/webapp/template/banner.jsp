@@ -19,6 +19,27 @@
         <script type="text/javascript">
           document.addEventListener('DOMContentLoaded', function() {
             document.title = "Kapsiki Healthcare";
+            try {
+                const dropdown = document.querySelector("#userBar")
+
+const elements = Array.from(dropdown.children)
+
+dropdown.classList.add("dropdown")
+
+elements.forEach(e => e.classList.add("dropdown-element"))
+
+const dropdownHandler = document.createElement('div')
+
+dropdownHandler.innerHTML = "Menu"
+dropdownHandler.onclick = () => {
+    elements.forEach(e => e.classList.toggle("visible"))
+} 
+
+dropdown.appendChild(dropdownHandler)
+
+            } catch (error) {
+              
+            }
           })
         	function resize(){
 			document.getElementById('bar-round-reduced50').style.height = document.getElementById('barsmall').offsetHeight+"px";
