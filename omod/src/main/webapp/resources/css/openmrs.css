@@ -1766,7 +1766,8 @@ body, #content {
 	border-bottom: 1px solid #8d8d8d;
 }
 
-div.portlet:nth-child(3)>form:nth-child(2)>table:nth-child(1)>tbody:nth-child(1)>tr:nth-child(3)>td:nth-child(2)>input:nth-child(1) {
+
+#loginPortlet form input[type="submit"], .portlet>form input[type="submit"] {
 	background: #0CAE50;
 	color: #fff;
 	font-weight: bold;
