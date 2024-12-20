@@ -1718,7 +1718,7 @@ body, #content {
 	box-sizing: border-box;
 }
 
-#loginPortlet form {
+#loginPortlet form, .portlet>form {
 	padding: 32px !important;
 	max-width: 400px !important;
 	width: 100% !important;
@@ -1726,4 +1726,49 @@ body, #content {
 	background: #fff;
 	box-shadow: 1px 1px 10px #ddd;
 	border-radius: 8px
+}
+
+
+#loginPortlet form tr, .portlet>form tr {
+	display: block !important;
+	margin-bottom: 16px
+}
+
+#loginPortlet form td, .portlet>form td {
+	display: block !important;
+}
+
+#loginPortlet form table, .portlet>form table {
+	display: block;
+	text-align: left !important;
+
+}
+
+#loginPortlet form tbody, .portlet>form tbody {
+	display: block;
+
+}
+
+#loginPortlet form td, .portlet>form td {
+	font-size: 11px;
+	color: #8d8d8d;
+	margin-bottom: 4px
+}
+
+#loginPortlet form input, .portlet>form input {
+	width: 100%;
+	padding: 8px 16px;
+	height: 48px;
+	background: #f4f4f4;
+	border: none;
+	font-size: 14px;
+	border-radius: 4px;
+	border-bottom: 1px solid #8d8d8d;
+}
+
+div.portlet:nth-child(3)>form:nth-child(2)>table:nth-child(1)>tbody:nth-child(1)>tr:nth-child(3)>td:nth-child(2)>input:nth-child(1) {
+	background: #0CAE50;
+	color: #fff;
+	font-weight: bold;
+	border: none
 }
