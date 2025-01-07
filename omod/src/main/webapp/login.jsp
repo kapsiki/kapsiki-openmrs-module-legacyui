@@ -82,6 +82,15 @@
 </c:if>
 
 <span id="loginPortlet"	<c:if test="${foundMissingPrivileges == true}">style='display:none'</c:if>>
+	
+    <img style="width: 250px; text-align: center; display: block; margin: auto;"
+    src="${pageContext.request.contextPath}<spring:theme
+      code="image.logo.large"
+      text="/images/openmrs_logo_white_large.png"
+    />" alt='<openmrs:message code="openmrs.title" />' title='<openmrs:message
+      code="openmrs.title"
+    />'/>
+		<br />
 	<openmrs:portlet url="login" />
 </span>
 
