@@ -40,7 +40,7 @@ jobs:
           REMOTE_SERVER: ${{ secrets.REMOTE_SERVER }}
           SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
         run: |
-          # Debug the REMOTE_SERVER to ensure it's correctly set
+          # Debug the REMOTE_SERVER to ensure it's correctly set accessible
           echo "REMOTE_SERVER is: $REMOTE_SERVER"
           
           # Set up SSH key for authentication
