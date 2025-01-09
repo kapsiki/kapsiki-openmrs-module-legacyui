@@ -1,0 +1,55 @@
+name: Build and Deploy legacy UI module
+
+on:
+  push:
+    branches:
+      - kapsiki-master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      PLATFORM: ubuntu-latest
+      JAVA_VERSION: 8  # Set the Java version to 8
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Install dependencies and build .omod file
+        run: mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true --batch-mode --show-version --file pom.xml
+
+      - name: Build with Maven
+        run: mvn package --batch-mode --file pom.xml
+
+      - name: Copy .omod file to remote server
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_SERVER: ${{ secrets.REMOTE_SERVER }}
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+        run: |
+          # Set up SSH key for authentication
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H $REMOTE_SERVER >> ~/.ssh/known_hosts
+          
+          # Navigate to the omod directory and target folder
+          cd omod/target
+          
+          # Copy the .omod file to the correct remote directory
+          scp -q *.omod $SSH_USERNAME@$REMOTE_SERVER:/home/openmrs/deploy/openmrs/openmrs-data/modules/
