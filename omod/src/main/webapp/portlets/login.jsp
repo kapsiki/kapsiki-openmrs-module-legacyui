@@ -9,6 +9,7 @@
 <br/>
 
 <form method="post" action="<openmrs:contextPath/>/ms/legacyui/loginServlet" style="padding:15px; width: 300px;" autocomplete="off">
+	<div style="text-align: center; font-size: 20px; color: #a0a0a1; font-weight: bold; margin-top: 24px; margin-bottom: 24px;">Login</div>
 	<table>
 		<tr>
 			<td><openmrs:message code="User.username"/>:</td>
@@ -18,14 +19,14 @@
 			<td><openmrs:message code="User.password"/>:</td>
 			<td><input type="password" name="pw" value="" id="password" size="25" /></td>
 		</tr>
+			<td></td>
+			<td><a style="text-align: right; text-decoration: none; display: block; color: #0cae50;" class="forgotPasswordLink" href="${pageContext.request.contextPath}/forgotPassword.form"><openmrs:message code="User.password.forgot"/></a></td>
+		</tr>
 		<tr>
 			<td></td>
 			<td><input type="submit" value="<openmrs:message code="auth.login"/>" /></td>
 		</tr>
 		<tr>
-			<td></td>
-			<td><a class="forgotPasswordLink" href="${pageContext.request.contextPath}/forgotPassword.form"><openmrs:message code="User.password.forgot"/></a></td>
-		</tr>
 	</table>
 	<br/>
 	
