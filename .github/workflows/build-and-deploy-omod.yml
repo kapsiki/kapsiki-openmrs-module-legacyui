@@ -30,7 +30,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-       - name: Install dependencies and build .omod file
+      - name: Install dependencies and build .omod file
         run: mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true --batch-mode --show-version --file pom.xml
 
       - name: Build with Maven
@@ -50,6 +50,6 @@ jobs:
           
           # Navigate to the omod directory and target folder
           cd omod/target
-          a
+          
           # Copy the .omod file to the correct remote directory
           scp -q *.omod $SSH_USERNAME@$REMOTE_SERVER:/home/openmrs/deploy/openmrs/openmrs-data/modules/
