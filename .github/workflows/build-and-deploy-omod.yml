@@ -1,3 +1,4 @@
+
 name: Build and Deploy legacy UI module
 
 on:
@@ -39,6 +40,9 @@ jobs:
           REMOTE_SERVER: ${{ secrets.REMOTE_SERVER }}
           SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
         run: |
+          # Debug the REMOTE_SERVER to ensure it's correctly set
+          echo "REMOTE_SERVER is: $REMOTE_SERVER"
+          
           # Set up SSH key for authentication
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
