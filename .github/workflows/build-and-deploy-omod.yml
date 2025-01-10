@@ -66,14 +66,14 @@ jobs:
           # Debug the REMOTE_SERVER to ensure it's correctly set accessible
           echo "REMOTE_SERVER is: $REMOTE_SERVER"
           
-          # Set up SSH key for authentication
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H $REMOTE_SERVER >> ~/.ssh/known_hosts
+          # # Set up SSH key for authentication
+          # mkdir -p /home/openmrs/.ssh
+          # echo "$SSH_PRIVATE_KEY" > /home/openmrs/.ssh/id_rsa
+          # chmod 600 /home/openmrs/.ssh/id_rsa
+          # ssh-keyscan -H $REMOTE_SERVER >> ~/.ssh/known_hosts
           
           # Optional: Test SSH connection to ensure it's working
-          if ssh -i ~/.ssh/id_rsa -o BatchMode=yes -o StrictHostKeyChecking=no $SSH_USERNAME@$REMOTE_SERVER 'exit'; then
+          if ssh -i /home/openmrs/.ssh/id_rsa -o BatchMode=yes -o StrictHostKeyChecking=no $SSH_USERNAME@$REMOTE_SERVER 'exit'; then
             echo "SSH connection established successfully."
           else
             echo "Error: Unable to establish SSH connection."
