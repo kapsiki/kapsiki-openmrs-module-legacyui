@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PLATFORM: ubuntu-latest
-      JAVA_VERSION: 8  # Set the Java version to 8
+      JAVA_VERSION: 8  # Set  Java version to 8
 
     steps:
       - name: Checkout repository
