@@ -36,9 +36,9 @@ jobs:
 
       - name: Copy .omod file to remote server
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_SERVER: ${{ secrets.REMOTE_SERVER }}
-          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+          SSH_PRIVATE_KEY: ${{ secrets.PRVKEY }}
+          REMOTE_SERVER: ${{ secrets.REMOTESERVER }}
+          SSH_USERNAME: ${{ secrets.REMOTEUSERNAME }}
         run: |
           # Debug the REMOTE_SERVER to ensure it's correctly set accessible
           echo "REMOTE_SERVER is: $REMOTE_SERVER"
