@@ -41,7 +41,7 @@ jobs:
           SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
         run: |
           # Debug the REMOTE_SERVER to ensure it's correctly set accessible
-          echo "REMOTE_SERVER is: $REMOTE_SERVER"
+          echo "REMOTE_SERVER is:$REMOTE_SERVER"
           
           # Set up SSH key for authentication
           mkdir -p ~/.ssh
